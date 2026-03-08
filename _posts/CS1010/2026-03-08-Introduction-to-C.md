@@ -3,7 +3,7 @@ title: Introduction to C
 description: Writeup on how to start thinking in programs and C syntax
 date: 2026-03-08 10:20:00 +0800
 categories: [CS1010]
-img_path: /assets/posts/2026-03-07-Introduction-to-C
+img_path: /assets/posts/CS1010/2026-03-07-Introduction-to-C
 tags: [C]
 ---
 
