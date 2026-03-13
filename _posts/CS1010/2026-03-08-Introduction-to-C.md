@@ -106,6 +106,7 @@ Line 4: `printf("Tax (cents): %d\n", 888 * 9 / 100);`
 Format Specifiers are a great way to output any unknown variable or calculations that you may have in your code. It is also very helpful in print debugging. In CS1010, it is expected knowledge after week 1 so definitely try to familiarise yourself with it!
 
 Here are some of the format specifiers that we frequently use:
+
 | Specifier | Data Type | Description | Example Output |
 | :--- | :--- | :--- | :--- |
 | **`%d`** or **`%i`** | `int` | Signed decimal integer | `42`, `-15` |
