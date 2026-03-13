@@ -23,8 +23,7 @@ Hopefully by the end of this article series, you will be able to understand C (t
 #### Content Overview:
 * [Introduction to C](#introduction-to-c)
 * [Format Specifiers](#format-specifiers)
-* [Variables and Naming](#variables-and-naming)
-* [Variable Type](#variable-type)
+* [Variables](#variables)
 * [Bits and Bytes](#bits-and-bytes) 
 * [Arithmetic Operators and Assignment Operators](#arithmetic-operators-and-assignment-operators)
 * [Summary](#summary)
@@ -118,10 +117,20 @@ Here are some of the format specifiers that we frequently use:
 | **`%p`** | `void *` | Pointer (memory address) | `0x7ffee1b2c` |
 | **`%x`** or **`%X`** | `unsigned int` | Unsigned hexadecimal | `2a`, `2A` |
 
+## Variables
 
-## Variables and Naming
+Lets refer back to the last example:
 
-## Variable Type
+```
+1. #include <stdio.h>
+2.
+3. int main(void){
+4.     printf("Tax (cents): %d\n", 888 * 9 / 100);
+5. }
+```
+The code looks very messy! If we have to input the calculation into the printf function every single time, there will be a lot of wasted energy typing. In the practical exam, we should be coding efficiently and effectively!
+
+So lets try to make our code cleaner! We can do that by using variables. 
 
 ## Bits and Bytes
 
