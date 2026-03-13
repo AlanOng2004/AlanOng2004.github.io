@@ -108,7 +108,7 @@ Format Specifiers are a great way to output any unknown variable or calculations
 Here are some of the format specifiers that we frequently use:
 
 | Specifier | Data Type | Description | Example Output |
-| :--- | :--- | :--- | :--- |
+|---|---|---|---|
 | **`%d`** or **`%i`** | `int` | Signed decimal integer | `42`, `-15` |
 | **`%u`** | `unsigned int` | Unsigned decimal integer | `42` |
 | **`%zu`** | `size_t` | Unsigned integer representing memory size | `40`, `8` |
@@ -117,6 +117,7 @@ Here are some of the format specifiers that we frequently use:
 | **`%s`** | `char[]` or `char*` | String of characters | `"Hello"` |
 | **`%p`** | `void *` | Pointer (memory address) | `0x7ffee1b2c` |
 | **`%x`** or **`%X`** | `unsigned int` | Unsigned hexadecimal | `2a`, `2A` |
+
 
 ## Variables and Naming
 
@@ -127,10 +128,12 @@ Here are some of the format specifiers that we frequently use:
 ## Arithmetic Operators and Assignment Operators
 
 ## Summary
+
 | Specifier | Data Type | Description | Example Output |
-| :--- | :--- | :--- | :--- |
+|---|---|---|---|
 | **`%d`** or **`%i`** | `int` | Signed decimal integer | `42`, `-15` |
 | **`%u`** | `unsigned int` | Unsigned decimal integer | `42` |
+| **`%zu`** | `size_t` | Unsigned integer representing memory size | `40`, `8` |
 | **`%f`** | `float` or `double` | Decimal floating-point | `3.141590` |
 | **`%c`** | `char` | Single character | `'A'` |
 | **`%s`** | `char[]` or `char*` | String of characters | `"Hello"` |
