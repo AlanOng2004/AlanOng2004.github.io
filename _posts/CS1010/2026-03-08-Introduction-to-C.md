@@ -66,16 +66,18 @@ Line 3: `int main(void)`
 
 Line 4: `printf(“Hello World!\n”);`
 * We are calling the printf function which ouputs anything you write in the brackets!
-    * Make sure that you wrap your text in "";
+    * Make sure that you wrap your text in ""
     * We will cover how to add variables in your output later
     * `\n` means new line. In C, the output does not automatically move to the next line after outputting the given text/values, so you will have to do it for them!
 * This line of code will output `Hello World!`
+
+*💡 CS1010 Tip: Remember to end your statements with `;`*
 
 What if you want to print something that is not determined yet? How do we print `2 * 3`? Sure we can do this simple calculation in our heads right now, but what if the numbers get very complicated? 
 
 The solution is to use the computer to do the calculation for you! Save your brain power for more complicated tasks later on!
 
-### Format Specifiers
+## Format Specifiers
 In this program, we are trying to calculate the tax of a good worth $888. If the tax is 9%, then the total tax value should be `888 * 9/100`! Simple math!
 
 How do we output the value though? Would the following example work? 
@@ -130,7 +132,29 @@ Lets refer back to the last example:
 ```
 The code looks very messy! If we have to input the calculation into the printf function every single time, there will be a lot of wasted energy typing. In the practical exam, we should be coding efficiently and effectively!
 
-So lets try to make our code cleaner! We can do that by using variables. 
+So lets try to make our code cleaner! We can do that by using variables.
+
+Variables are named data storage containers for your data. They are able to hold any data types as long as it is declared beforehand. 
+
+![image](C-Variable-Initialization.jpeg)
+
+
+Here is an example:
+
+
+```
+1. #include <stdio.h>
+2.
+3. int main(void){
+4.     int product_cost = 888;
+5.     int gst_rate = 9;
+6.     int tax = product_cost * gst_rate / 100;   
+7.     printf("Tax (cents): %d\n", tax); 
+8. }
+```
+
+Line 4: int product_cost = 888;
+* We are declaring a variable here
 
 ## Bits and Bytes
 
@@ -153,5 +177,7 @@ So lets try to make our code cleaner! We can do that by using variables.
 `int main(void)`
 
 *💡 It is considered "Best Practice" in C to use void because it makes your code more type-safe. It prevents accidental data from being passed where it isn't wanted.*
+
+*💡 Remember to end your statements with `;`*
 
 ## Exam Questions
