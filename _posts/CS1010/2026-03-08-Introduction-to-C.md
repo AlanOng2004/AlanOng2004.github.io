@@ -136,7 +136,7 @@ So lets try to make our code cleaner! We can do that by using variables.
 
 Variables are named data storage containers for your data. They are able to hold any data types as long as it is declared beforehand. 
 
-![image](c-variable-initialization.png)
+![image](/assets/img/posts/CS1010/2026-03-08-Introduction-to-C/c-variable-initalization.png)
 
 
 Here is an example:
