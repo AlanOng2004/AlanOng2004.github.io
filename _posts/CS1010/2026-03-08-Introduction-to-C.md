@@ -136,7 +136,7 @@ So lets try to make our code cleaner! We can do that by using variables.
 
 Variables are named data storage containers for your data. They are able to hold any data types as long as it is declared beforehand. 
 
-![image](C-Variable-Initialization.jpeg)
+![image](c-variable-initialization.jpeg)
 
 
 Here is an example:
