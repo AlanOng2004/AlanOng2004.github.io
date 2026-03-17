@@ -255,9 +255,6 @@ Here is a breakdown of the standard C data types, assuming a typical 64-bit envi
 | **`long`** | *Min 4 bytes*. Generally 8 bytes / 64 bits | `-9,223,372,036,854,775,808` to `9,223,372,036,854,775,807`<br>*( -(2<sup>63</sup>) to 2<sup>63</sup> - 1 )* |
 | **`unsigned long`** | *Min 4 bytes*. Generally 8 bytes / 64 bits | `0` to `18,446,744,073,709,551,615`<br>*( 0 to 2<sup>64</sup> - 1 )* |
 | **`long long`** | 8 bytes / 64 bits | `-9,223,372,036,854,775,808` to `9,223,372,036,854,775,807`<br>*( -(2<sup>63</sup>) to 2<sup>63</sup> - 1 )* |
-| **`unsigned long long`** | 8 bytes / 64 bits | `0` to `18,446,744,073,709,551,615`<br>*( 0 to 2<sup>64</sup> - 1 )* |
-| **`float`** | 4 bytes / 32 bits | `1.2E-38` to `3.4E+38`<br>*(Precision: ~6 decimal places)* |
-| **`double`** | 8 bytes / 64 bits | `2.3E-308` to `1.7E+308`<br>*(Precision: ~15 decimal places)* |
 
 ***💡 CS1010 Tip:** Always use **`double`** for anything needing decimal points instead of `float`! Modern computers have plenty of memory to handle the 8 bytes, and the extra precision prevents weird rounding errors in your calculations.*
 
