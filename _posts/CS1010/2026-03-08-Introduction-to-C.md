@@ -71,7 +71,7 @@ Line 4: `printf(“Hello World!\n”);`
     * `\n` means new line. In C, the output does not automatically move to the next line after outputting the given text/values, so you will have to do it for them!
 * This line of code will output `Hello World!`
 
-*💡 CS1010 Tip: Remember to end your statements with `;`*
+***💡 CS1010 Tip:** Remember to end your statements with `;`*
 
 What if you want to print something that is not determined yet? How do we print `2 * 3`? Sure we can do this simple calculation in our heads right now, but what if the numbers get very complicated? 
 
@@ -138,7 +138,7 @@ Variables are named data storage containers for your data. They are able to hold
 
 ![image](/assets/img/posts/CS1010/2026-03-08-Introduction-to-C/c-variable-initalization.png)
 
-#### C Variable Declaration
+### C Variable Declaration
 `<type> <variable name>;`
 
 Example:
@@ -146,7 +146,7 @@ Example:
 * `float y;`
 * `double z;`
 
-#### C Variable Initialization
+### C Variable Initialization
 `<variable name> = <expression>;`
 
 Example:
@@ -161,6 +161,22 @@ You can also declare multiple variables at once, but be *careful* when initializ
 * `int x, y, z = 5` only sets `z = 5`!
 
 If you want to declare and initialize all of them in one line, you can do this: `int x = 5, y = 6, z = 7;`
+
+### Variable Naming Restrictions
+Obviously there are some restrictions to how you name your variables. This is so that the compiler is able to accurately identify what is a variable. So what is the naming convention?
+
+**Allowed characters**: letters, digits, and underscore (eg. no spaces)
+* OK: `test`, `test123`, `test_123`, etc
+* NOT OK: `test 123`, `t@est`, etc
+
+**Start of a variable**: letter or underscore
+* *C discourages names starting with underscores as those identifiers are "reserved to the implementation" per the C standard (meaning used by the C library, or rarely by the compiler itself)*
+* NOT OK: `123test`, `@test`, etc
+
+Not a reserved word or keyword (eg. int/double)
+* NOT OK: `double double`, `int int`, etc
+
+
 
 Now lets see this in action! Here is an example:
 
@@ -190,19 +206,66 @@ Line 6: `int tax = product_cost * gst_rate / 100;`
     * `product_cost * gst_rate / 100` === (is equivalent to) `888 * 9 / 100`
 * `tax` will now hold/ represent `888 * 9 / 100` or `79`
 
-*💡 CS1010 Tip: Try to understand each statement with the specific choice of language that I have used to describe it*
+***💡 CS1010 Tip:** Try to understand each statement with the specific choice of language that I have used to describe it*
 
 
 Line 7: `printf("Tax (cents): %d\n", tax);`
 * Now our printf statement is a lot cleaner to read!
 
+### Variable Types
+What if we want to be more accurate in our gst calculation? Ideally, we would want to include some decimal points right? But integers cannot hold decimal points, so we will have to use a different data type for decimal numbers.
+
+```
+1. #include <stdio.h>
+2.
+3. int main(void){
+4.     double product_cost = 888;
+5.     double gst_rate = 9;
+6.     double tax = product_cost * gst_rate / 100;   
+7.     printf("Tax (cents): %f\n", tax); 
+8. }
+```
+
+Line 4: `double product_cost = 888;`
+* We are declaring a double variable named `product_cost` and assigning the value `888` to it
+* Even though we assigned it to be `888`, it will actually hold/represent `888.0`
+
+Line 6: `double tax = product_cost * gst_rate / 100;`
+* The tax variable now holds the calculation including decimal points!
+* `tax = 79.920000`
 
 ## Bits and Bytes
+
+Now that we have some practice with using variables and data types, we need to consider the pros and cons of each data type. Have you ever thought about how much space a data type takes up? What happens when the size of your data is larger than the data type you are using?
+
+Therefore we need to learn what makes up these data types. 
+
+
+
+
+
+
+Here is a breakdown of the standard C data types, assuming a typical 64-bit environment:
+
+| Variable Type | Size (Bytes / Bits) | Range |
+|---|---|---|
+| **`char`** | 1 byte / 8 bits | `-128` to `127`<br>*( -(2<sup>7</sup>) to 2<sup>7</sup> - 1 )* |
+| **`int`** | *Min 2 bytes*. Generally 4 bytes / 32 bits | `-2,147,483,648` to `2,147,483,647`<br>*( -(2<sup>31</sup>) to 2<sup>31</sup> - 1 )* |
+| **`unsigned int`** | *Min 2 bytes*. Generally 4 bytes / 32 bits | `0` to `4,294,967,295`<br>*( 0 to 2<sup>32</sup> - 1 )* |
+| **`long`** | *Min 4 bytes*. Generally 8 bytes / 64 bits | `-9,223,372,036,854,775,808` to `9,223,372,036,854,775,807`<br>*( -(2<sup>63</sup>) to 2<sup>63</sup> - 1 )* |
+| **`unsigned long`** | *Min 4 bytes*. Generally 8 bytes / 64 bits | `0` to `18,446,744,073,709,551,615`<br>*( 0 to 2<sup>64</sup> - 1 )* |
+| **`long long`** | 8 bytes / 64 bits | `-9,223,372,036,854,775,808` to `9,223,372,036,854,775,807`<br>*( -(2<sup>63</sup>) to 2<sup>63</sup> - 1 )* |
+| **`unsigned long long`** | 8 bytes / 64 bits | `0` to `18,446,744,073,709,551,615`<br>*( 0 to 2<sup>64</sup> - 1 )* |
+| **`float`** | 4 bytes / 32 bits | `1.2E-38` to `3.4E+38`<br>*(Precision: ~6 decimal places)* |
+| **`double`** | 8 bytes / 64 bits | `2.3E-308` to `1.7E+308`<br>*(Precision: ~15 decimal places)* |
+
+***💡 CS1010 Tip:** Always use **`double`** for anything needing decimal points instead of `float`! Modern computers have plenty of memory to handle the 8 bytes, and the extra precision prevents weird rounding errors in your calculations.*
 
 ## Arithmetic Operators and Assignment Operators
 
 ## Summary
 
+### Format Specifiers
 | Specifier | Data Type | Description | Example Output |
 |---|---|---|---|
 | **`%d`** or **`%i`** | `int` | Signed decimal integer | `42`, `-15` |
@@ -214,11 +277,24 @@ Line 7: `printf("Tax (cents): %d\n", tax);`
 | **`%p`** | `void *` | Pointer (memory address) | `0x7ffee1b2c` |
 | **`%x`** or **`%X`** | `unsigned int` | Unsigned hexadecimal | `2a`, `2A` |
 
-## Tips
-`int main(void)`
+### Variable Types and Bits
+| Variable Type | Size (Bytes / Bits) | Range |
+|---|---|---|
+| **`char`** | 1 byte / 8 bits | `-128` to `127`<br>*( -(2<sup>7</sup>) to 2<sup>7</sup> - 1 )* |
+| **`int`** | *Min 2 bytes*. Generally 4 bytes / 32 bits | `-2,147,483,648` to `2,147,483,647`<br>*( -(2<sup>31</sup>) to 2<sup>31</sup> - 1 )* |
+| **`unsigned int`** | *Min 2 bytes*. Generally 4 bytes / 32 bits | `0` to `4,294,967,295`<br>*( 0 to 2<sup>32</sup> - 1 )* |
+| **`long`** | *Min 4 bytes*. Generally 8 bytes / 64 bits | `-9,223,372,036,854,775,808` to `9,223,372,036,854,775,807`<br>*( -(2<sup>63</sup>) to 2<sup>63</sup> - 1 )* |
+| **`unsigned long`** | *Min 4 bytes*. Generally 8 bytes / 64 bits | `0` to `18,446,744,073,709,551,615`<br>*( 0 to 2<sup>64</sup> - 1 )* |
+| **`long long`** | 8 bytes / 64 bits | `-9,223,372,036,854,775,808` to `9,223,372,036,854,775,807`<br>*( -(2<sup>63</sup>) to 2<sup>63</sup> - 1 )* |
 
+
+## Tips
 *💡 It is considered "Best Practice" in C to use void because it makes your code more type-safe. It prevents accidental data from being passed where it isn't wanted.*
 
+>`int main(void)`
+
 *💡 Remember to end your statements with `;`*
+
+*💡 Always use **`double`** for anything needing decimal points instead of `float`! Modern computers have plenty of memory to handle the 8 bytes, and the extra precision prevents weird rounding errors in your calculations.*
 
 ## Exam Questions
