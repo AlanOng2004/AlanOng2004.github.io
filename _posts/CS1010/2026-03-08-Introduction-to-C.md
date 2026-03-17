@@ -277,9 +277,13 @@ Summary of Format Specifiers:
 | **`%p`** | `void *` | Pointer (memory address) | `0x7ffee1b2c` |
 | **`%x`** or **`%X`** | `unsigned int` | Unsigned hexadecimal | `2a`, `2A` |
 
+
+
 ### Variable Types and Bits
 
 Summary of Variable types:
+
+
 
 | Variable Type | Size (Bytes / Bits) | Range |
 |---|---|---|
@@ -289,6 +293,9 @@ Summary of Variable types:
 | **`long`** | *Min 4 bytes*. Generally 8 bytes / 64 bits | `-9,223,372,036,854,775,808` to `9,223,372,036,854,775,807`<br>*( -(2<sup>63</sup>) to 2<sup>63</sup> - 1 )* |
 | **`unsigned long`** | *Min 4 bytes*. Generally 8 bytes / 64 bits | `0` to `18,446,744,073,709,551,615`<br>*( 0 to 2<sup>64</sup> - 1 )* |
 | **`long long`** | 8 bytes / 64 bits | `-9,223,372,036,854,775,808` to `9,223,372,036,854,775,807`<br>*( -(2<sup>63</sup>) to 2<sup>63</sup> - 1 )* |
+
+
+
 
 
 ## Tips
