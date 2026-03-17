@@ -138,8 +138,31 @@ Variables are named data storage containers for your data. They are able to hold
 
 ![image](/assets/img/posts/CS1010/2026-03-08-Introduction-to-C/c-variable-initalization.png)
 
+#### C Variable Declaration
+`<type> <variable name>;`
 
-Here is an example:
+Example:
+* `int x;`
+* `float y;`
+* `double z;`
+
+#### C Variable Initialization
+`<variable name> = <expression>;`
+
+Example:
+* `x = 5;`
+* `y = 5.0;`
+
+You can declare a variable and initialize it at the same time!
+* `int x = 3;`
+
+You can also declare multiple variables at once, but be *careful* when initializing them!
+* `int x, y, z;`
+* `int x, y, z = 5` only sets `z = 5`!
+
+If you want to declare and initialize all of them in one line, you can do this: `int x = 5, y = 6, z = 7;`
+
+Now lets see this in action! Here is an example:
 
 
 ```
@@ -153,8 +176,26 @@ Here is an example:
 8. }
 ```
 
-Line 4: int product_cost = 888;
-* We are declaring a variable here
+Line 4: `int product_cost = 888;`
+* We are declaring an integer variable named `product_cost` and assigning the value `888` to it
+* `product_cost` will now hold/ represent `888`
+
+Line 5: `int gst_rate = 9;`
+* We are declaring an integer variable named `gst_rate` and assigning the value `9` to it
+* `gst_rate` will now hold/ represent `9`
+
+Line 6: `int tax = product_cost * gst_rate / 100;`
+* We are declaring an integer variable named `tax` and assigning the value `product_cost * gst_rate / 100` to it
+    * Your computer will convert the variables to the value it is representing and calculate this for you!
+    * `product_cost * gst_rate / 100` === (is equivalent to) `888 * 9 / 100`
+* `tax` will now hold/ represent `888 * 9 / 100` or `79`
+
+*💡 CS1010 Tip: Try to understand each statement with the specific choice of language that I have used to describe it*
+
+
+Line 7: `printf("Tax (cents): %d\n", tax);`
+* Now our printf statement is a lot cleaner to read!
+
 
 ## Bits and Bytes
 
