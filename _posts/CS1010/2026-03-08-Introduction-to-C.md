@@ -264,6 +264,8 @@ Here is a breakdown of the standard C data types, assuming a typical 64-bit envi
 
 ### Format Specifiers
 
+Summary of Format Specifiers:
+
 | Specifier | Data Type | Description | Example Output |
 |---|---|---|---|
 | **`%d`** or **`%i`** | `int` | Signed decimal integer | `42`, `-15` |
@@ -276,6 +278,8 @@ Here is a breakdown of the standard C data types, assuming a typical 64-bit envi
 | **`%x`** or **`%X`** | `unsigned int` | Unsigned hexadecimal | `2a`, `2A` |
 
 ### Variable Types and Bits
+
+Summary of Variable types:
 
 | Variable Type | Size (Bytes / Bits) | Range |
 |---|---|---|
