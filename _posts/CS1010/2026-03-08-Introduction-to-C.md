@@ -348,7 +348,7 @@ Similarly, when we subtract 1 from an integer at minimum value *(-2<sup>31</sup>
 <details>
 <summary>Click to reveal answer</summary>
 
-The result is **0**.
+The result is 0.
 
 Unsigned integers wrap around when they exceed their maximum value.
 
@@ -369,9 +369,9 @@ but since the maximum is 255, it wraps back to 0.
 
 Since the maximum is 255, it wraps around.
 
-260 − 256 = **4**
+260 − 256 = 4
 
-So the result is **4**.
+So the result is 4.
 
 </details>
 
@@ -383,7 +383,7 @@ So the result is **4**.
 <details>
 <summary>Click to reveal answer</summary>
 
-The result becomes **-128**.
+The result becomes -128.
 
 When the maximum value (127) is exceeded, it wraps around to the minimum value (-128).
 
@@ -397,7 +397,7 @@ When the maximum value (127) is exceeded, it wraps around to the minimum value (
 <details>
 <summary>Click to reveal answer</summary>
 
-The result becomes **127**.
+The result becomes 127.
 
 When we go below the minimum value (-128), it wraps around to the maximum value (127).
 
@@ -415,9 +415,9 @@ When we go below the minimum value (-128), it wraps around to the maximum value 
 
 But the maximum signed value is 127.
 
-140 − 256 = **-116**
+140 − 256 = -116
 
-So the result is **-116**.
+So the result is -116.
 
 </details>
 
@@ -472,10 +472,11 @@ Summary of Variable types:
 
 *💡 Remember to end your statements with `;`*
 
-***💡 CS1010 Tip:** 1 byte = 8 bits* 
+*💡 1 byte = 8 bits* 
 
 *💡 Always use **`double`** for anything needing decimal points instead of `float`! Modern computers have plenty of memory to handle the 8 bytes, and the extra precision prevents weird rounding errors in your calculations.*
 
+*💡 You can think of overflowing as the value looping around to the other side of the range.* 
 
 
 ## Exam Questions
