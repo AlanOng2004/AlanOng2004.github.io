@@ -25,6 +25,7 @@ Hopefully by the end of this article series, you will be able to understand C (t
 * [Format Specifiers](#format-specifiers)
 * [Variables](#variables)
 * [Bits and Bytes](#bits-and-bytes) 
+* [Integer Overflow](#integer-overflow)
 * [Arithmetic Operators and Assignment Operators](#arithmetic-operators-and-assignment-operators)
 * [Summary](#summary)
 * [Tips](#tips)
@@ -236,14 +237,88 @@ Line 6: `double tax = product_cost * gst_rate / 100;`
 
 ## Bits and Bytes
 
-Now that we have some practice with using variables and data types, we need to consider the pros and cons of each data type. Have you ever thought about how much space a data type takes up? What happens when the size of your data is larger than the data type you are using?
+Now that we have some practice with using variables and data types, we need to consider the pros and cons of each data type. Have you ever thought about how your computer memory works? How much space a data type takes up? What happens when the size of your data is larger than the data type you are using?
 
-Therefore we need to learn what makes up these data types. 
+***💡 CS1010 Tip:** This part is very often tested in exams and is quite tricky!* 
+Your computer’s memory is made up of a very large number of tiny storage units.
+The smallest unit is called a bit (short for binary digit).
 
+A bit can only store one of two values:
 
+> 0 or 1
 
+You can think of a bit like a switch - it is either off (0) or on (1).
 
+Modules like CS2100 (or its CG equivalent) will explore this further at the hardware level. For now, we only need a high-level understanding.
 
+#### How Can Only 0 and 1 Represent Everything?
+
+If a bit can only hold two values, how can we represent numbers like 6? Or 42? Or even text? The truth is computers don’t use just one bit — they use groups of bits.
+
+When we write numbers using only 0 and 1, we are writing them in binary, also known as base2.
+
+In base10 (decimal), each digit represents a power of 10:
+
+> 345 = 3×100 + 4×10 + 5×1
+
+This representation is what you are normally familiar with (I hope).
+
+In base-2 (binary), each digit represents a power of 2:
+
+> The rightmost bit is 2⁰  
+> Next is 2¹  
+> Then 2²  
+> Then 2³
+>   
+> 0 0 0 0  
+> 2³ 2² 2¹ 2⁰
+
+Each bit acts like a switch:
+
+If the bit is 1 → we “take” that power of 2. 
+
+If the bit is 0 → we “don’t take” it.
+
+We use `0b` to represent base2 / binary representation. Similarly, we use `0d` to represent base10 / decimal and `0x` to represent base16 / hexadecimals. 
+
+***Think about it:** How would you convert binary to hexadecimals and vice versa?* 
+
+***💡 CS1010 Tip:** 1 byte = 8 bits* 
+
+#### Self Exercise
+> Represent 67 in binary
+<details>
+<summary>Click to reveal answer</summary>
+
+The answer is 0b01000011.
+
+</details>
+
+---
+
+> Represent 129 in binary
+
+<details>
+<summary>Click to reveal answer</summary>
+
+The answer is 0b10000001.
+
+</details>
+
+---
+
+> Represent 255 in binary
+
+<details>
+<summary>Click to reveal answer</summary>
+
+The answer is 0b111111111.
+
+</details>
+
+---
+
+Every one of our data types have a set amount of bits and bytes assigned to them! It is important to know the limits of your data types! 
 
 Here is a breakdown of the standard C data types, assuming a typical 64-bit environment:
 
@@ -257,6 +332,99 @@ Here is a breakdown of the standard C data types, assuming a typical 64-bit envi
 | **`long long`** | 8 bytes / 64 bits | `-9,223,372,036,854,775,808` to `9,223,372,036,854,775,807`<br>*( -(2<sup>63</sup>) to 2<sup>63</sup> - 1 )* |
 
 ***💡 CS1010 Tip:** Always use **`double`** for anything needing decimal points instead of `float`! Modern computers have plenty of memory to handle the 8 bytes, and the extra precision prevents weird rounding errors in your calculations.*
+
+## Integer Overflow
+We have now represented each data type with the amount of bits that they hold. This also shows the range of values that they can hold. For example integers can only hold *( -(2<sup>31</sup>) to 2<sup>31</sup> - 1 )*. 
+
+So what happens when we add 1 to an integer at maximum value *(2<sup>31</sup> - 1)*? The integer will **overflow** and the value will now be reseted to represent the minimum value an integer can hold *(-2<sup>31</sup>)*. 
+
+Similarly, when we subtract 1 from an integer at minimum value *(-2<sup>31</sup>)*, the integer will now represent *(2<sup>31</sup> - 1)*. 
+
+#### Self Exercise
+
+> An 8-bit **unsigned** integer can store values from 0 to 255.  
+> What happens if we compute: 255 + 1 ?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+The result is **0**.
+
+Unsigned integers wrap around when they exceed their maximum value.
+
+255 + 1 = 256,  
+but since the maximum is 255, it wraps back to 0.
+
+</details>
+
+---
+
+> What is the result of: 250 + 10 ?  
+> (Assume 8-bit unsigned integer)
+
+<details>
+<summary>Click to reveal answer</summary>
+
+250 + 10 = 260.
+
+Since the maximum is 255, it wraps around.
+
+260 − 256 = **4**
+
+So the result is **4**.
+
+</details>
+
+---
+
+> An 8-bit **signed** integer can store values from -128 to 127.  
+> What happens if we compute: 127 + 1 ?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+The result becomes **-128**.
+
+When the maximum value (127) is exceeded, it wraps around to the minimum value (-128).
+
+</details>
+
+---
+
+> What is the result of: -128 - 1 ?  
+> (Assume 8-bit signed integer)
+
+<details>
+<summary>Click to reveal answer</summary>
+
+The result becomes **127**.
+
+When we go below the minimum value (-128), it wraps around to the maximum value (127).
+
+</details>
+
+---
+
+> What is the result of: 100 + 40 ?  
+> (Assume 8-bit signed integer)
+
+<details>
+<summary>Click to reveal answer</summary>
+
+100 + 40 = 140.
+
+But the maximum signed value is 127.
+
+140 − 256 = **-116**
+
+So the result is **-116**.
+
+</details>
+
+---
+
+***💡 CS1010 Tip:** You can think of overflowing as the value looping around to the other side of the range.* 
+
 
 ## Arithmetic Operators and Assignment Operators
 
@@ -279,8 +447,7 @@ Summary of Format Specifiers:
 
 
 
-### Variable Types and Bits
-
+### Variable Types 
 Summary of Variable types:
 
 
@@ -305,6 +472,10 @@ Summary of Variable types:
 
 *💡 Remember to end your statements with `;`*
 
+***💡 CS1010 Tip:** 1 byte = 8 bits* 
+
 *💡 Always use **`double`** for anything needing decimal points instead of `float`! Modern computers have plenty of memory to handle the 8 bytes, and the extra precision prevents weird rounding errors in your calculations.*
+
+
 
 ## Exam Questions
