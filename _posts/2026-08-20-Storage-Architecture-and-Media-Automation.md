@@ -1,5 +1,5 @@
 ---
-title: Phase 1 - Storage Architecture & Media Automation
+title: Phase 1 Day 1 - Storage Architecture & Media Automation
 description: Building the Docker foundation, isolated analytical storage, and atomic hardlinks for a homelab data platform.
 date: 2026-08-20 23:26:00 +0800
 categories: [Homelab, Data Engineering]
