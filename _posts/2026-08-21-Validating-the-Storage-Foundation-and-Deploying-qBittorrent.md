@@ -1,5 +1,5 @@
 ---
-title: Phase 1 Day 2 - Validating the Storage Foundation and Deploying qBittorrent
+title: Phase 1, Day 2 - Validating the Storage Foundation and Deploying qBittorrent
 description: Testing the real filesystem, correcting a path mistake, securing Docker port exposure, and deploying the first media automation container.
 date: 2026-08-21 22:48:44 +0800
 categories: [Homelab, Data Engineering]
